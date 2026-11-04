@@ -46,6 +46,9 @@ export function TaskForm({
       setSalvando(true);
       await aoSalvar(formulario);
       setFormulario(estadoInicial);
+    } catch {
+      // A falha já é registrada pelo TarefasProvider. O formulário
+      // permanece aberto com os dados digitados.
     } finally {
       setSalvando(false);
     }
