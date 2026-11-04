@@ -1,62 +1,82 @@
-# TaskFlow
+# Fluxo de Tarefas
 
-Gerenciador de tarefas desenvolvido na disciplina de Desenvolvimento Mobile, com
-React, TypeScript, React Router, Axios e CrudCrud (API REST usada como backend
-temporário).
+Projeto desenvolvido para a disciplina de Desenvolvimento Mobile. O Fluxo de Tarefas é uma aplicação web para organizar atividades do dia a dia, permitindo visualizar, cadastrar e excluir tarefas.
+
+O projeto foi desenvolvido utilizando React, TypeScript e outras ferramentas do ecossistema JavaScript.
 
 ## Funcionalidades
 
-- Navegação entre as páginas Hoje, Próximas, Todas as tarefas e Concluídas (SPA).
-- Carregamento das tarefas a partir do CrudCrud.
-- Cadastro de tarefas por meio de um modal único, acessível pela Sidebar, pelo
-  Header e pela página Todas as tarefas.
-- Exclusão de tarefas.
+- Visualizar as tarefas do dia.
+- Consultar as próximas tarefas.
+- Visualizar todas as tarefas cadastradas.
+- Consultar tarefas concluídas.
+- Adicionar novas tarefas por meio de um formulário em modal.
+- Excluir tarefas.
+
+## Tecnologias utilizadas
+
+- React
+- TypeScript
+- Vite
+- React Router
+- Axios
+- CrudCrud (API utilizada para armazenar as tarefas)
 
 ## Requisitos
 
-- Node.js 20 ou superior
-- Um endpoint do [CrudCrud](https://crudcrud.com)
+- Node.js 20 ou superior.
+- Endpoint ativo no [CrudCrud](https://crudcrud.com/).
 
-## Como executar
+## Como executar o projeto
+
+1. Instale as dependências:
 
 ```bash
 npm install
+```
+
+2. Crie o arquivo `.env` a partir do exemplo:
+
+```bash
 cp .env.example .env
 ```
 
-Edite o arquivo `.env` e troque `SEU_ENDPOINT` pelo identificador gerado no
-CrudCrud:
+No Windows PowerShell, também é possível usar:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+3. Abra o arquivo `.env` e informe seu endpoint:
 
 ```env
 VITE_API_URL=https://crudcrud.com/api/SEU_ENDPOINT
 ```
 
-Depois, inicie o servidor de desenvolvimento:
+4. Inicie o projeto:
 
 ```bash
 npm run dev
 ```
 
-> O endpoint gratuito do CrudCrud é temporário. Se as requisições começarem a
-> falhar, gere um novo endpoint, atualize o `.env` e reinicie o `npm run dev`
-> (o Vite só lê o `.env` ao iniciar).
+## Scripts disponíveis
 
-## Scripts
+| Comando | Descrição |
+|---|---|
+| `npm run dev` | Inicia o servidor de desenvolvimento. |
+| `npm run build` | Verifica os tipos e gera a versão de produção. |
+| `npm run preview` | Executa localmente a versão de produção. |
 
-| Comando           | Descrição                                   |
-| ----------------- | ------------------------------------------- |
-| `npm run dev`     | Inicia o servidor de desenvolvimento        |
-| `npm run build`   | Verifica os tipos e gera a versão de produção |
-| `npm run preview` | Executa localmente a versão de produção     |
-
-## Estrutura
+## Organização do projeto
 
 ```text
 src/
-├── components/   Layout, Sidebar, Header, TaskCard, TaskList, TaskForm, TaskModal
-├── contexts/     TarefasContext (estado compartilhado das tarefas)
-├── pages/        Today, Upcoming, Tasks, Completed
-├── services/     tarefaService (comunicação HTTP com o CrudCrud)
-├── styles/       variables.css e global.css
-└── types/        Tarefa
+├── components/
+├── contexts/
+├── pages/
+├── services/
+├── styles/
+└── types/
 ```
+
+Cada pasta reúne os arquivos de uma parte da aplicação, como componentes, páginas, estilos e serviços.
